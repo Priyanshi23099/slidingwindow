@@ -1,0 +1,24 @@
+def printFirstNegativeInteger( A, N, K):
+    
+    q=[]
+    l=0
+    h=K-1
+    res=[]
+    for i in range(K):
+        if A[i]<0:
+            
+            q.append(A[i])
+    while (h<N):
+        if q:
+            res.append(q[0])
+        else:
+            res.append(0)
+        if A[l]<0:
+            q.pop(0)
+        l+=1
+        if h==N-1:
+            break
+        h+=1
+        if A[h]<0:
+            q.append(A[h])
+    return res
