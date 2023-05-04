@@ -1,0 +1,9 @@
+class Solution:
+    def maximumSumSubarray (self,K,Arr,N):
+        window =Arr[0:K]
+        wsum=sum(window)
+        maximum=wsum
+        for i in range(0,N-K):
+            wsum=wsum-Arr[i]+Arr[i+K]
+            maximum=max(wsum,maximum)
+        return maximum
