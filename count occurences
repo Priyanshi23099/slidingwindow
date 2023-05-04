@@ -1,0 +1,25 @@
+class Solution:
+
+	
+	def search(self,pat, txt):
+	    alpha="abcdefghijklmnopqrstuvwxyz"
+	    m1={}
+	    m2={}
+	    for i in alpha:
+	        m1[i]=0
+	        m2[i]=0
+	    for i in pat:
+	        m1[i]+=1
+	    ans=0
+	    j=len(pat)
+	    for i in range(len(pat)):
+	        m2[txt[i]]+=1
+	    for i in range(len(txt)-len(pat)):
+	        if m2==m1:
+	            ans+=1
+	        m2[txt[i]]-=1
+	        m2[txt[j]]+=1
+	        j+=1
+	    if m2==m1:
+	        ans+=1
+	    return ans
